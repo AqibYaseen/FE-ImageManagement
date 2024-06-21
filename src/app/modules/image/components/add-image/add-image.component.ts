@@ -52,9 +52,13 @@ export class AddImageComponent implements OnInit {
 
   submit(): void {
     if (this.form.invalid) {
+      this.snackBar.open('Form is invalid', '', { duration: 2000 });
       return;
     }
-
+    if (!this.isUrlValid) {
+      this.snackBar.open('Image URL is invalid', '', { duration: 2000 });
+      return;
+    }
     const fd = this.form.value;
 
     const payload: TImageRequest = {
