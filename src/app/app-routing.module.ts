@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'image', redirectTo: '/image', pathMatch: 'full' },
+  { path: '', redirectTo: '/image', pathMatch: 'full' },
   {
     path: 'image',
     loadChildren: () =>
