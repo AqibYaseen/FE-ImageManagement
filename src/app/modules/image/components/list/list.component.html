@@ -1,0 +1,7 @@
+<div class="d-flex flex-wrap justify-content-center gap-4">
+  <ng-container *ngFor="let item of images$ | async">
+      <div class="p-2" style="flex: 0 0 25%;">
+          <app-image-card (editImage)="editImage($event)" (deleteImage)="deleteImage($event)" [Image]="item" class=""></app-image-card>
+      </div>
+  </ng-container>
+</div>

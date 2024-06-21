@@ -1,0 +1,16 @@
+img{
+max-height: 100%;
+max-width: 100%;
+object-fit: cover;
+aspect-ratio: 9/16;
+}
+
+
+.shadow:hover{
+  scale: 1.03;
+  transition: all .6s;
+}
+
+.shadow{
+  max-width: 300px;
+}

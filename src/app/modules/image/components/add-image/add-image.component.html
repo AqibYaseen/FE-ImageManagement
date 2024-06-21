@@ -1,1 +1,45 @@
-<p>add-image works!</p>
+<div class="container-main">
+  <div>
+    <h5 class="py-2">Add new Image</h5>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column gap-4" >
+    <div class="form-group">
+      <label for="">Name:</label>
+      <input formControlName="user" class="form-control" type="text">
+      <div class="text-danger" *ngIf="form.controls.user.errors && form.controls.user.touched">
+        <small *ngIf="form.controls.user.errors['required']">Name is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="">Description:</label>
+      <textarea formControlName="description" class="form-control" type="text">
+        </textarea>
+
+      <div class="text-danger" *ngIf="form.controls.description.errors && form.controls.description.touched">
+        <small *ngIf="form.controls.description.errors['required']">Description is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label for="">Url:</label>
+      <div class="d-flex gap-3">
+        <input formControlName="url" class="form-control" type="text">
+        <img class="previewimg" [src]="imageURL" alt="">
+      </div>
+      <div class="text-danger" *ngIf="form.controls.url.errors && form.controls.url.touched">
+        <small *ngIf="form.controls.url.errors['required']">Image URL is required.</small>
+      </div>
+
+      <div class="text-danger" *ngIf="form.controls.url.dirty">
+        <small *ngIf="!isUrlValid">Image URL is not valid.</small>
+      </div>
+      <small class="text-success" *ngIf="checkingURL">Validating URL.</small>
+    </div>
+    <div>
+      <button class="btn btn-primary">Submit</button>
+    </div>
+
+  </form>
+</div>
